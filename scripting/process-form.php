@@ -1,4 +1,5 @@
 <?php
+
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -23,18 +24,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare email details
-    $to = "your-email@example.com"; // Replace with your email address
+    $to = "alenjasper07@hotmail.com"; // Replace with your email address
     $subject = "New Contact Form Submission";
     $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
     $headers = "From: $email";
 
     // Send the email
     if (mail($to, $subject, $body, $headers)) {
-        echo "Thank you for contacting us. We will get back to you soon.";
+        // Redirect to the success page
+        header("Location: sucess.php");
+        exit;
     } else {
-        echo "Sorry, there was an error sending your message. Please try again later.";
-  }
+        echo "Failed to send the email. Please try again later.";
+        exit;
+    }
 } else {
     echo "Invalid request.";
+    exit;
 }
 ?>
