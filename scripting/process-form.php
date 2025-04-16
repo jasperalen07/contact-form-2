@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Here you would typically send the email or save the data to a database
 
     // Redirect to success page
-    header('Location: sucess.php');
+    header('Location: success.php');
     exit;
 } else {
     // If the form is not submitted, redirect to the form page
